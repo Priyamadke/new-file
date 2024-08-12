@@ -148,13 +148,15 @@ def main():   # all done here is the driver function which will call above class
             # reading cleaned data table for creating graph.
             df_clean = pd.read_sql_table(table_name, conn_sqlalchemy)
 
+            
+
             # Plot graph
             df_sorted = df_clean.sort_values(by='sales')
             plt.bar(df_sorted['department_name'], df_sorted['sales'])
             plt.xlabel('Department Name')
             plt.ylabel('Sales')
             plt.title('Sales by Department in Increasing Order')
-            plt.show()
+            plt.show()    
         else:
             print("Error: SQLAlchemy connection not established")
     else:
